@@ -2,25 +2,56 @@ import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
 import { Guess } from './New'
+import guess from './guess.json'
 
+function App(state) {
+  let [animalName, setName] = useState('');
+  let [clues, setClues] = useState([]);
+  let [score, setScore] = useState(0);
+  
 
-function App() {
-  [animalName, setName] = useState('');
-  [clue1, setClue1] = useState('');
-  [clue2, setClue2] = useState('');
-  [clue3, setClue3] = useState('');
+  const incrementScore = () => {
+      setScore(this.state.score + 1);
+  }
 
-  JSON.parse()
+  const newCard = () => {
+    setName();
+    setClues();
+  }
+  
+  setScore = (score) => {
+    return score;
+  }
+
+  setName = () => {
+    let answer = JSON.parse(guess.answer);
+    return answer;
+  }
+
+  setClues = () => {
+    let clue = [];
+    for(let i = 0; i < 3; i++){
+      clue.push(JSON.parse(guess.clues[i]))
+    }
+    return clue;
+  }
+    
   return (
     <div className="App">
       <header className="App-header">
-        <Guess />
+        <Guess score={state.score}/>
       </header>
       <body>
-        <h1>{state.animalName}</h1>
-        <p>{state.clue1}</p><br/>
-        <p>{state.clue2}</p><br/>
-        <p>{state.clue3}</p><br/>
+        <h1>{this.state.animalName}</h1>
+        {this.state.clues.map( (clue) => {
+          return(
+            <div>
+              <p>{clue}</p><br/>
+            </div>
+          )
+        })}
+        <button onClick={incrementScore}>Point</button>
+        <button onClick={newCard}>New Card</button>
       </body>
     </div>
   );

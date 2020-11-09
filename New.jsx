@@ -1,13 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import guess2Tell from './Guess2Tell.json'
 
-export const Guess = () => {
+export const Guess = (props) => {
 
-    username = JSON.parse(properties.name.value);
-    score = JSON.parse(properties.score.value);
+    let username = JSON.parse(guess2Tell.name);
 
     return(
         <div>
-            <h3>{username} : {score}</h3>
+            <h3 className='user' >{username} : {props.score}</h3>
         </div>
     );
 }
