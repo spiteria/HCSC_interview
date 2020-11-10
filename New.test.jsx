@@ -23,8 +23,4 @@ describe('testing Guess function', () => {
         const wrapper = shallow(<Guess />);
         expect(wrapper.find('h1')).toHaveLength(1);
     })
-    
-     
-    
-
 })

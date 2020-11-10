@@ -3,12 +3,13 @@ import './App.css';
 import { useState } from 'react';
 import { Guess } from './New'
 import guess from './guess.json'
+// import { getState } from 'react-redux'
 
 function App(state) {
   let [animalName, setName] = useState('');
   let [clues, setClues] = useState([]);
   let [score, setScore] = useState(0);
-  
+  // const store = getState();
 
   const incrementScore = () => {
       setScore(this.state.score + 1);
@@ -39,7 +40,7 @@ function App(state) {
   return (
     <div className="App">
       <header className="App-header">
-        <Guess score={state.score}/>
+        <Guess store={store} score={state.score}/>
       </header>
       <body>
         <h1>{this.state.animalName}</h1>
